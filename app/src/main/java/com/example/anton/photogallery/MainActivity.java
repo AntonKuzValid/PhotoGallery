@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     recyclerView.setLayoutManager(layoutManager);
                     OkHttpClient client = getClientWithHeader(yandexAuthToken.getValue());
                     YandexDiskSourceFactory factory = new YandexDiskSourceFactory(client);
-//                    YandexDiskDataSource dataSource = new YandexDiskDataSource(client);
 
                     PagedList.Config config = new PagedList.Config.Builder()
                             .setEnablePlaceholders(false)
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                             .build();
 
                     LiveData<PagedList<Photo>> pagedList = new LivePagedListBuilder<>(factory, config)
-//                            .setMainThreadExecutor(new MainThreadExecutor())
                             .setBackgroundThreadExecutor(Executors.newSingleThreadExecutor())
                             .build();
 
